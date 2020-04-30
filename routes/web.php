@@ -11,7 +11,8 @@
 |
 */
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('product/{slug}','HomeController@single')->name('product.single');
 
 Route::group(['middleware'=>['auth']],function(){
 
@@ -37,5 +38,3 @@ Route::group(['middleware'=>['auth']],function(){
 
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
